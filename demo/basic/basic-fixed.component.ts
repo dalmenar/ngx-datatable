@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'basic-fixed-demo',
@@ -29,13 +30,15 @@ export class BasicFixedComponent {
   rows = [];
   columns = [
     { prop: 'name' },
-    { name: 'Company' },
-    { name: 'Gender' }
+    { prop: 'company' },
+    { prop: 'age', pipe: this.currencyPipe, propCurrencyCode: 'currency' }
   ];
 
-  constructor() {
+  constructor(private currencyPipe: CurrencyPipe) {
+    
     this.fetch((data) => {
       this.rows = data;
+      
     });
   }
 

@@ -150,9 +150,9 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
 
   @Input() set treeStatus(status: TreeStatus) {
     if (status !== 'collapsed' &&
-        status !== 'expanded' &&
-        status !== 'loading' &&
-        status !== 'disabled') {
+      status !== 'expanded' &&
+      status !== 'loading' &&
+      status !== 'disabled') {
       this._treeStatus = 'collapsed';
     } else {
       this._treeStatus = status;
@@ -178,12 +178,12 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
     if (this.column.cellClass) {
       if (typeof this.column.cellClass === 'string') {
         cls += ' ' + this.column.cellClass;
-      } else if(typeof this.column.cellClass === 'function') {
+      } else if (typeof this.column.cellClass === 'function') {
         const res = this.column.cellClass({
           row: this.row,
           group: this.group,
           column: this.column,
-          value: this.value ,
+          value: this.value,
           rowHeight: this.rowHeight
         });
 
@@ -283,13 +283,21 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
       const userPipe: PipeTransform = this.column.pipe;
 
       if (userPipe) {
-        value = userPipe.transform(val);
+        // If we have currency code
+        if (this.column.propCurrencyCode && this.row[this.column.propCurrencyCode]) {
+          value = userPipe.transform(val, this.row[this.column.propCurrencyCode]);
+        // If we have multiples pipes values
+        } else if (this.column.pipeValues) {
+          value = userPipe.transform(val, this.column.pipeValues);
+        } else {
+          value = userPipe.transform(val);
+        }
       } else if (value !== undefined) {
         value = val;
       }
     }
 
-    if(this.value !== value) {
+    if (this.value !== value) {
       this.value = value;
       this.cellContext.value = value;
       this.sanitizedValue = value !== null && value !== undefined ? this.stripHtml(value) : value;
@@ -389,7 +397,7 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
   }
 
   stripHtml(html: string): string {
-    if(!html.replace) return html;
+    if (!html.replace) return html;
     return html.replace(/<\/?[^>]+(>|$)/g, '');
   }
 

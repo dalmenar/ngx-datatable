@@ -36,6 +36,7 @@ import { Location, LocationStrategy, HashLocationStrategy } from '@angular/commo
             <ul>
               <li><a href="#virtual-scroll" (click)="state='virtual-scroll'">10k Rows</a></li>
               <li><a href="#full-screen" (click)="state='full-screen'">Full Screen</a></li>
+              <li><a href="#basic-fixed-demo" (click)="state='basic-fixed'">basic-fixed-demo</a></li>
               <li><a href="#inline-edit" (click)="state='inline-edit'">Inline Editing</a></li>
               <li><a href="#horz-vert-scrolling" (click)="state='horz-vert-scrolling'">Horz/Vert Scrolling</a></li>
               <li><a href="#multiple-tables" (click)="state='multiple-tables'">Multiple Tables</a></li>
