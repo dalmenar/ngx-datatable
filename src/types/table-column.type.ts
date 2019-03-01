@@ -253,5 +253,5 @@ export interface TableColumn {
   /**
    * Property variable currency code
    */
-  propCurrencyCode: string;
+  propCurrencyCode?: string;
 }
