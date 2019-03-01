@@ -11,7 +11,7 @@ import { MouseEvent, KeyboardEvent } from '../../events';
 import { ContentChild } from '@angular/core/src/metadata/di';
 
 export type TreeStatus = 'collapsed' | 'expanded' | 'loading' | 'disabled';
- 
+
 @Component({
   selector: 'datatable-body-cell',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -281,17 +281,35 @@ export class DataTableBodyCellComponent implements DoCheck, OnDestroy {
     } else {
       const val = this.column.$$valueGetter(this.row, this.column.prop);
       const userPipe: PipeTransform = this.column.pipe;
-
+      
       if (userPipe) {
         // If we have currency code
         if (this.column.propCurrencyCode && this.row[this.column.propCurrencyCode]) {
           value = userPipe.transform(val, this.row[this.column.propCurrencyCode]);
-        // If we have multiples pipes values
+          
+          // If we have multiples pipes values
         } else if (this.column.pipeValues) {
-          value = userPipe.transform(val, this.column.pipeValues);
+          switch (this.column.pipeValues.length) {
+            case 1: {
+              value = userPipe.transform(val, this.column.pipeValues[0]);
+            }
+            case 2: {
+              value = userPipe.transform(val,
+                this.column.pipeValues[0],
+                this.column.pipeValues[1]);
+            }
+            case 3: {
+              value = userPipe.transform(val,
+                this.column.pipeValues[0],
+                this.column.pipeValues[1],
+                this.column.pipeValues[2]);
+            }
+          }
+
         } else {
           value = userPipe.transform(val);
         }
+        
       } else if (value !== undefined) {
         value = val;
       }

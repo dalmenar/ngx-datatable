@@ -31,7 +31,7 @@ export class BasicFixedComponent {
   columns = [
     { prop: 'name' },
     { prop: 'company' },
-    { prop: 'age', pipe: this.currencyPipe, propCurrencyCode: 'currency' }
+    { prop: 'age', name: 'test',  pipe: this.currencyPipe, propCurrencyCode: 'currency'   }
   ];
 
   constructor(private currencyPipe: CurrencyPipe) {

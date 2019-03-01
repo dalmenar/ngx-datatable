@@ -246,7 +246,27 @@ var DataTableBodyCellComponent = /** @class */ (function () {
             var val = this.column.$$valueGetter(this.row, this.column.prop);
             var userPipe = this.column.pipe;
             if (userPipe) {
-                value = userPipe.transform(val);
+                // If we have currency code
+                if (this.column.propCurrencyCode && this.row[this.column.propCurrencyCode]) {
+                    value = userPipe.transform(val, this.row[this.column.propCurrencyCode]);
+                    // If we have multiples pipes values
+                }
+                else if (this.column.pipeValues) {
+                    switch (this.column.pipeValues.length) {
+                        case 1: {
+                            value = userPipe.transform(val, this.column.pipeValues[0]);
+                        }
+                        case 2: {
+                            value = userPipe.transform(val, this.column.pipeValues[0], this.column.pipeValues[1]);
+                        }
+                        case 3: {
+                            value = userPipe.transform(val, this.column.pipeValues[0], this.column.pipeValues[1], this.column.pipeValues[2]);
+                        }
+                    }
+                }
+                else {
+                    value = userPipe.transform(val);
+                }
             }
             else if (value !== undefined) {
                 value = val;

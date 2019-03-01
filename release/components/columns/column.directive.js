@@ -117,6 +117,14 @@ var DataTableColumnDirective = /** @class */ (function () {
     ], DataTableColumnDirective.prototype, "summaryTemplate", void 0);
     __decorate([
         core_1.Input(),
+        __metadata("design:type", Array)
+    ], DataTableColumnDirective.prototype, "pipeValues", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], DataTableColumnDirective.prototype, "propCurrencyCode", void 0);
+    __decorate([
+        core_1.Input(),
         core_1.ContentChild(column_cell_directive_1.DataTableColumnCellDirective, { read: core_1.TemplateRef }),
         __metadata("design:type", core_1.TemplateRef)
     ], DataTableColumnDirective.prototype, "cellTemplate", void 0);

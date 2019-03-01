@@ -3,19 +3,22 @@
         "name": "Ethel Price",
         "gender": "female",
         "company": "Johnson, Johnson and Partners, LLC CMP DDC",
-        "age": 22
+        "age": 22,
+        "currency":"USD"
     },
     {
         "name": "Claudine Neal",
         "gender": "female",
         "company": "Sealoud",
-        "age": 55
+        "age": 55,
+        "currency":"EUR"
     },
     {
         "name": "Beryl Rice",
         "gender": "female",
         "company": "Velity",
-        "age": 67
+        "age": 67,
+        "currency":"USD"
     },
     {
         "name": "Wilder Gonzales",

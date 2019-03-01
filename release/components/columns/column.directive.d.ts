@@ -25,6 +25,8 @@ export declare class DataTableColumnDirective implements OnChanges {
     treeLevelIndent: number;
     summaryFunc: (cells: any[]) => any;
     summaryTemplate: TemplateRef<any>;
+    pipeValues?: any[];
+    propCurrencyCode?: string;
     cellTemplate: TemplateRef<any>;
     headerTemplate: TemplateRef<any>;
     treeToggleTemplate: TemplateRef<any>;
