@@ -244,4 +244,14 @@ export interface TableColumn {
    * @memberOf TableColumn
    */
   summaryTemplate?: any;
+
+  /**
+   * Pipes values transform
+   */
+  pipeValues?: any[];
+
+  /**
+   * Property variable currency code
+   */
+  propCurrencyCode?: string;
 }

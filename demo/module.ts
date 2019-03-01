@@ -71,6 +71,7 @@ import { SummaryRowSimpleComponent } from './summary/summary-row-simple.componen
 import { SummaryRowCustomTemplateComponent } from './summary/summary-row-custom-template.component';
 import { SummaryRowServerPagingComponent } from './summary/summary-row-server-paging.component';
 import { SummaryRowInlineHtmlComponent } from './summary/summary-row-inline-html.component';
+import { CurrencyPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -127,6 +128,7 @@ import { SummaryRowInlineHtmlComponent } from './summary/summary-row-inline-html
     SummaryRowInlineHtmlComponent,
   ],
   imports: [BrowserModule, NgxDatatableModule],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [CurrencyPipe]
 })
 export class AppModule { }
