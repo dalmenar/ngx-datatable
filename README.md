@@ -46,7 +46,8 @@ npm i @swimlane/ngx-datatable --save
 
 ## Table column type - Example
 
-### pipeValues: property info about pipes value (+ info: https://angular.io/api/common/CurrencyPipe)
+### pipeValues
+### Property info about pipes value (+ info: https://angular.io/api/common/CurrencyPipe)
 
 
 ```sh
@@ -69,8 +70,8 @@ npm i @swimlane/ngx-datatable --save
    
 
 
-### propCurrencyCode: Example: property info about currency. 
-
+### propCurrencyCode: 
+### Property info about currency. 
 ```sh
 {
          
