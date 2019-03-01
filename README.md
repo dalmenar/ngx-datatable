@@ -44,7 +44,7 @@ npm i @swimlane/ngx-datatable --save
 
 # New Features!
 
-## Table column type - Example
+## New columns in table column type
 
 ### pipeValues
 ### Property info about pipes value (+ info: https://angular.io/api/common/CurrencyPipe)
