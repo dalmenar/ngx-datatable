@@ -50,7 +50,7 @@ npm i @swimlane/ngx-datatable --save
 ### Property info about pipes value (+ info: https://angular.io/api/common/CurrencyPipe)
 
 
-```sh
+```javascript
 {
           "name": "Ethel Price",
           "gender": "female",
@@ -58,7 +58,7 @@ npm i @swimlane/ngx-datatable --save
           "age": 22          
 }
 ```
-```sh
+```javascript
 {
          columns = [
         { prop: 'name' },
@@ -72,7 +72,7 @@ npm i @swimlane/ngx-datatable --save
 
 ### propCurrencyCode: 
 ### Property info about currency. 
-```sh
+```javascript
 {
          
           "name": "Ethel Price",
@@ -85,14 +85,14 @@ npm i @swimlane/ngx-datatable --save
 ```
 
 
-```sh
+```javascript
 {
          
  columns = [
         { prop: 'name' },
         { prop: 'company' },
         { prop: 'age', pipe: this.currencyPipe, propCurrencyCode: 'currency' }
-  ];"
+  ];
                 
 }
 ```
