@@ -42,39 +42,57 @@ npm i @swimlane/ngx-datatable --save
 
 [SecOps Hub](http://secopshub.com) is an open, product-agnostic, online community for security professionals to share ideas, use cases, best practices, and incident response strategies.
 
+# New Features!
+
 ## Table column type - Example
 
 ### pipeValues: property info about pipes value (+ info: https://angular.io/api/common/CurrencyPipe)
 
-  Object: {
+
+```sh
+{
           "name": "Ethel Price",
           "gender": "female",
           "company": "Johnson, Johnson and Partners, LLC CMP DDC",
           "age": 22          
-        }
-        
-  Table options:
-      columns = [
+}
+```
+```sh
+{
+         columns = [
         { prop: 'name' },
         { prop: 'company' },
         { prop: 'age', pipe: this.currencyPipe, pipeValues:  ['EUR','1.1-2'] }
-      ];
+      ];         
+}
+```
+   
 
 
 ### propCurrencyCode: Example: property info about currency. 
 
-
-  Object: {
+```sh
+{
+         
           "name": "Ethel Price",
           "gender": "female",
           "company": "Johnson, Johnson and Partners, LLC CMP DDC",
           "age": 22,
           "currency":"USD"
-        }
-        
-  Table options:
-      columns = [
+                
+}
+```
+
+
+```sh
+{
+         
+ columns = [
         { prop: 'name' },
         { prop: 'company' },
         { prop: 'age', pipe: this.currencyPipe, propCurrencyCode: 'currency' }
-      ];
+  ];"
+                
+}
+```
+        
