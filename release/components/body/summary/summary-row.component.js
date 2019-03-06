@@ -56,9 +56,7 @@ var DataTableSummaryRowComponent = /** @class */ (function () {
             .forEach(function (col) {
             var cellsFromSingleColumn = _this.rows.map(function (row) { return row[col.prop]; });
             var sumFunc = _this.getSummaryFunction(col);
-            _this.summaryRow[col.prop] = col.pipe ?
-                col.pipe.transform(sumFunc(cellsFromSingleColumn)) :
-                sumFunc(cellsFromSingleColumn);
+            _this.summaryRow[col.prop] = sumFunc(cellsFromSingleColumn);
         });
     };
     DataTableSummaryRowComponent.prototype.getSummaryFunction = function (column) {
